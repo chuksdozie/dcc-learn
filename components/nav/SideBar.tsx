@@ -7,7 +7,9 @@ import { MdOutlineNaturePeople } from "react-icons/md";
 const sidebarLinks = [
   { title: "Home", href: "/" },
   { title: "Search", href: "/about" },
-  { title: "Courses", href: "/" },
+  { title: "Courses", href: "/courses" },
+  { title: "Donate", href: "/courses" },
+  { title: "Feedback", href: "/courses" },
   // { title: "About Us", href: "/" },
   // { title: "Projects", href: "/" },
   // { title: "Donate", href: "/" },
@@ -64,6 +66,7 @@ const Sidebar = () => {
             <p className="hidden md:block p-0 m-0">{link.title}</p>
           </Link>
         ))}
+        <div>2025 - Dev Chuks Communty</div>
       </div>
     </div>
   );

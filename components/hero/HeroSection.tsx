@@ -5,7 +5,13 @@ import { AppCtaBtn } from "../base/Buttons";
 import Link from "next/link";
 import { links } from "@/constants/links";
 
-const HeroSection = () => {
+const HeroSection = ({
+  header,
+  subHeader,
+}: {
+  header?: any;
+  subHeader?: string;
+}) => {
   return (
     <div className="relative flex flex-col items-center justify-end bg-gray-100 py-5 h-[800px] overflow-hidden max-lg:h-screen bg-hero-bg bg-cover bg-center rounded-[30px] w-[90%]">
       {/* <video
@@ -24,12 +30,13 @@ const HeroSection = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-60  h-[800px] max-lg:h-screen  z-10"></div>
       <p className="text-sm font-light text-center w-[35%] text-gray-100 max-lg:w-[60%] max-md:w-[80%] z-10">
-        Explore a world of hand-picked courses designed to accelerate your
+        {subHeader ||
+          ` Explore a world of hand-picked courses designed to accelerate your
         skills in software development, UI/UX, and more. Learn at your pace,
-        from beginner to expert, all in one place.
+        from beginner to expert, all in one place.`}
       </p>
       <p className="text-6xl font-bold text-center w-[50%] mt-6 text-gray-100 max-md:w-[80%] max-md:text-5xl z-10 mb-10">
-        Curated Learning for Your Tech Journey
+        {header || `Curated Learning for Your Tech Journey`}
       </p>
 
       {/* <Link href={links.join_community} target="_blank" className="z-10">

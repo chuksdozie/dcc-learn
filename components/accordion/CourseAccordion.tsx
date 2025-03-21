@@ -1,5 +1,4 @@
-import { useRouter } from "next/router";
-import { title } from "process";
+import Link from "next/link";
 import React from "react";
 import {
   Accordion,
@@ -10,47 +9,49 @@ import {
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
 import { MdAirlineSeatFlat, MdKeyboardArrowRight } from "react-icons/md";
+import CenterModal from "../modal/CenterModal";
+import LessonView from "../lesson/LessonView";
 
 // Define the types for better structure
 interface Course {
   id: number;
   image: string;
   title: string;
+  link: string;
   description: string;
-  path: string;
+  path?: string;
   code?: string;
-  playlist: string;
 }
 
 interface CoursePath {
-  id: number;
-  path: string;
-  image: string;
-  courses: Course[];
+  id: string | number;
+  level: string;
+  content: Course[];
 }
 
 interface DefaultAccordionProps {
   data: CoursePath[];
 }
 
-const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
-  const router = useRouter();
+const CourseAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
+  const [closeModal, setCloseModal] = React.useState(false);
+  const [seletectedCourse, setSelectedCourse] = React.useState<Course | null>();
   return (
     <div className="w-full">
       <Accordion allowZeroExpanded>
         {data.map((item) => (
           <AccordionItem key={item.id}>
             <AccordionItemHeading>
-              <AccordionItemButton>{item.path}</AccordionItemButton>
+              <AccordionItemButton>{item.level}</AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
               <div className="flex flex-col gap-4 p-4">
-                {item.courses.map((course) => (
+                {item.content.map((course) => (
                   <div
                     key={course.id}
                     className="border-b p-2 rounded-md flex justify-between items-center"
                   >
-                    <div>
+                    <div className="w-[80%]">
                       <p className="text-lg font-semibold text-left">
                         {course.title}
                       </p>
@@ -60,17 +61,13 @@ const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
                     </div>
                     <div
                       className="flex justify-end gap-2 items-center cursor-pointer w-[120px] bg-gray-200 rounded-lg"
-                      onClick={() =>
-                        router.push({
-                          pathname: `/courses/${course.code}`,
-                          query: {
-                            playlist: course.playlist,
-                            title: course.title,
-                          },
-                        })
-                      }
+                      onClick={() => {
+                        console.log("clicked");
+                        setSelectedCourse(course);
+                        setCloseModal(true);
+                      }}
                     >
-                      <p className="text-xs">Open Course</p>
+                      <p className="text-xs">Start Lesson</p>
                       <MdKeyboardArrowRight size={20} />
                     </div>
                   </div>
@@ -80,8 +77,19 @@ const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
           </AccordionItem>
         ))}
       </Accordion>
+      {closeModal && (
+        <CenterModal
+          toggleModal={() => setCloseModal((prev) => !prev)}
+          width="500px"
+        >
+          <LessonView
+            closeModal={() => setCloseModal((prev) => !prev)}
+            data={seletectedCourse}
+          />
+        </CenterModal>
+      )}
     </div>
   );
 };
 
-export default DefaultAccordion;
+export default CourseAccordion;
