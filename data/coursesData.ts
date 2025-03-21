@@ -1,24 +1,25 @@
-export const coursesData = [
+import { courseCategory } from "@/constants/course";
+import { backend } from "./stacks/backend";
+import { frontend_web } from "./stacks/frontend";
+import { ai } from "./stacks/ai";
+
+export const coursesInfo = [
+  {
+    id: 0,
+    path: courseCategory.FRONTEND_WEB,
+    image: "/assets/courses/react.png",
+    courses: frontend_web,
+  },
   {
     id: 1,
-    path: "Web Development - Frontend",
+    path: courseCategory.BACKEND,
     image: "/assets/courses/react.png",
-    courses: [
-      {
-        id: 1,
-        image: "/assets/courses/react.png",
-        title: "React",
-        description: "jhasdgagsjhdbkaosdx asjfkdchsagdvajisda sjdas",
-        path: "React",
-      },
-      {
-        id: 2,
-        image: "/assets/courses/nextjs.png",
-        title: "Next.js",
-        description: "jhasdgagsjhdbkaosdx asjfkdchsagdvajisda sjdas",
-        path: "Next.js",
-        code: "nextjs",
-      },
-    ],
+    courses: backend,
+  },
+  {
+    id: 2,
+    path: courseCategory.AI,
+    image: "/assets/courses/react.png",
+    courses: ai,
   },
 ];
