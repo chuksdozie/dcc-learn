@@ -53,9 +53,9 @@ const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
                 {item.courses.map((course) => (
                   <div
                     key={course.id}
-                    className="border-b p-2 rounded-md flex justify-between items-center"
+                    className="border-b p-2 rounded-md flex  justify-between items-start  max-md:flex-col"
                   >
-                    <div>
+                    <div className="w-[80%] max-md:w-full max-md:mb-4">
                       <p className="text-sm max-lg:text-xs font-semibold text-left">
                         {course.title}
                       </p>
@@ -69,8 +69,8 @@ const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
                         router.push({
                           pathname: `/courses/${course.code}`,
                           query: {
-                            playlist: course.playlist,
-                            title: course.title,
+                            playlist: course.playlist as string,
+                            title: course.title as string,
                           },
                         })
                       }

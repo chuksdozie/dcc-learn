@@ -6,6 +6,7 @@ import { courseNames } from "@/constants/course";
 import DefaultAccordion from "@/components/accordion/DefaultAccordion";
 import CourseAccordion from "@/components/accordion/CourseAccordion";
 import { getAllPlaylistVideos } from "@/hooks/fetchCourses";
+import Loader from "@/components/loader/Loader";
 
 interface CourseData {
   id: number;
@@ -44,7 +45,10 @@ const CoursePage = () => {
     const loadCourse = async () => {
       if (router?.query?.id) {
         try {
-          const data = await getAllPlaylistVideos(router?.query?.playlist);
+          const playlistId = Array.isArray(router.query.playlist)
+            ? router.query.playlist[0]
+            : router.query.playlist ?? "";
+          const data = await getAllPlaylistVideos(playlistId);
           // .then((videos) => {
           //   console.log(JSON.stringify(videos, null, 2));
           // });
@@ -72,7 +76,7 @@ const CoursePage = () => {
   }, [router.query.id]);
 
   if (error) return <p>{error}</p>;
-  if (!courseData) return <p>Loading course...</p>;
+  if (!courseData) return <Loader />;
 
   return (
     <div className="flex flex-col items-center">
