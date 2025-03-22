@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { title } from "process";
 import React from "react";
 import {
   Accordion,
@@ -9,7 +8,7 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
-import { MdAirlineSeatFlat, MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 // Define the types for better structure
 interface Course {
@@ -41,7 +40,13 @@ const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
         {data.map((item) => (
           <AccordionItem key={item.id}>
             <AccordionItemHeading>
-              <AccordionItemButton>{item.path}</AccordionItemButton>
+              <AccordionItemButton
+                className={
+                  "accordion__button text-sm max-lg:text-xs text-gray500 font-light"
+                }
+              >
+                {item.path}
+              </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
               <div className="flex flex-col gap-4 p-4">
@@ -51,10 +56,10 @@ const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
                     className="border-b p-2 rounded-md flex justify-between items-center"
                   >
                     <div>
-                      <p className="text-lg font-semibold text-left">
+                      <p className="text-sm max-lg:text-xs font-semibold text-left">
                         {course.title}
                       </p>
-                      <p className="text-sm text-gray-700">
+                      <p className="text-sm max-lg:text-xs text-gray-700">
                         {course.description}
                       </p>
                     </div>
@@ -70,7 +75,7 @@ const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
                         })
                       }
                     >
-                      <p className="text-xs">Open Course</p>
+                      <p className="text-xs text-brand950">Open Course</p>
                       <MdKeyboardArrowRight size={20} />
                     </div>
                   </div>

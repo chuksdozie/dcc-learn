@@ -1,18 +1,20 @@
 import { useState, useRef, useEffect } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
-import colors from "@/constants/colors";
-import { MdOutlineNaturePeople } from "react-icons/md";
+import { AiOutlineHome, AiOutlineSearch } from "react-icons/ai";
+import { PiBookOpenUserThin } from "react-icons/pi";
+import { BiDonateHeart } from "react-icons/bi";
+import { VscFeedback } from "react-icons/vsc";
 
 const sidebarLinks = [
-  { title: "Home", href: "/" },
-  { title: "Search", href: "/about" },
-  { title: "Courses", href: "/courses" },
-  { title: "Donate", href: "/courses" },
-  { title: "Feedback", href: "/courses" },
-  // { title: "About Us", href: "/" },
-  // { title: "Projects", href: "/" },
-  // { title: "Donate", href: "/" },
+  { title: "Home", href: "/", icon: <AiOutlineHome size={15} /> },
+  {
+    title: "Courses",
+    href: "/courses",
+    icon: <PiBookOpenUserThin size={15} />,
+  },
+  { title: "Donate", href: "/courses", icon: <BiDonateHeart size={15} /> },
+  { title: "Search", href: "/about", icon: <AiOutlineSearch size={15} /> },
+  { title: "Feedback", href: "/courses", icon: <VscFeedback size={15} /> },
 ];
 
 const Sidebar = () => {
@@ -40,34 +42,37 @@ const Sidebar = () => {
   }, [isOpen]);
 
   return (
-    <div className="" ref={sidebarRef}>
+    <div className="bg-white" ref={sidebarRef}>
       {/* <div> */}
-      <RxHamburgerMenu
+      {/* <RxHamburgerMenu
         onClick={() => setIsOpen(!isOpen)}
         className="p-2 bg-gray-300 rounded-md lg:hidden"
         size={30}
         color={colors.brand900}
-      />
+      /> */}
 
       <div
         // className={`absolute top-10 left-[-20px] w-[250px] h-screen bg-red-600 shadow-lg flex flex-col items-end p-4 transform ${
         //   isOpen ? "translate-x-0" : "-translate-x-full"
         // } transition-transform duration-300 ease-in-out z-10`}
-        className={`w-[250px] h-screen bg-white shadow-lg flex flex-col items-end p-4 `}
+        className={`w-[250px] max-lg:w-[50px]  bg-white shadow-lg flex flex-col items-end `}
       >
         {sidebarLinks.map((link, index) => (
           <Link
             href={link.href}
             key={index}
-            className="flex ittems-center font-light text-base text-gray-700 w-full p-4 border-b border-gray-200"
+            className="flex items-center font-light text-base text-gray-700 w-full p-4 px-5 border-b border-gray-200 gap-2"
             onClick={() => setIsOpen(false)}
           >
-            <MdOutlineNaturePeople />
-            <p className="hidden md:block p-0 m-0">{link.title}</p>
+            {/* <MdOutlineNaturePeople className="p-0 m-0" size={15} /> */}
+            {link.icon}
+            <p className=" max-lg:hidden p-0 m-0 text-xs">{link.title}</p>
           </Link>
         ))}
-        <div>2025 - Dev Chuks Communty</div>
       </div>
+      <p className="text-gray-400 text-xs text-center mt-5 max-lg:hidden">
+        2025 - Dev Chuks Communty
+      </p>
     </div>
   );
 };

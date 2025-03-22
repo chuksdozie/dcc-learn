@@ -21,7 +21,7 @@ const CenterModal = ({
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`w-[65%] bg-white rounded-lg p-4 z-50`}
+          className={`w-[65%] max-lg:w-[90%] bg-brand200 rounded-lg p-4 z-50`}
         >
           {children}
         </div>
