@@ -14,7 +14,7 @@ const HomePage = () => {
       <HeroSection />
       <Stacks />
       {/* <AboutUs /> */}
-      <Contributors />
+      {/* <Contributors /> */}
     </div>
   );
 };

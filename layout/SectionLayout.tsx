@@ -11,7 +11,7 @@ const SectionLayout = ({
 }) => {
   return (
     <div className="flex flex-col  text-center pt-[60px] bg-gray100 items-center w-[90%]">
-      <p className="text-left w-[80%] text-xl text-gray600 font-semibold">
+      <p className="text-center w-[100%] text-lg text-gray600 font-semibold mb-4">
         {header}
       </p>
       {subHeader && (

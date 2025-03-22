@@ -8,7 +8,7 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
-import { MdAirlineSeatFlat, MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
 import CenterModal from "../modal/CenterModal";
 import LessonView from "../lesson/LessonView";
 
@@ -42,20 +42,26 @@ const CourseAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
         {data.map((item) => (
           <AccordionItem key={item.id}>
             <AccordionItemHeading>
-              <AccordionItemButton>{item.level}</AccordionItemButton>
+              <AccordionItemButton
+                className={
+                  "accordion__button text-sm max-lg:text-xs text-gray500 font-light"
+                }
+              >
+                {item.level}
+              </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
               <div className="flex flex-col gap-4 p-4">
                 {item.content.map((course) => (
                   <div
-                    key={course.id}
-                    className="border-b p-2 rounded-md flex justify-between items-center"
+                    key={course.link}
+                    className="border-b p-2 rounded-md flex justify-between items-start  max-md:flex-col"
                   >
-                    <div className="w-[80%]">
-                      <p className="text-lg font-semibold text-left">
+                    <div className="w-[80%] max-md:w-full max-md:mb-4">
+                      <p className="text-sm max-lg:text-xs font-semibold text-left">
                         {course.title}
                       </p>
-                      <p className="text-sm text-gray-700">
+                      <p className="text-sm max-lg:text-xs text-gray-700">
                         {course.description}
                       </p>
                     </div>
@@ -67,7 +73,7 @@ const CourseAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
                         setCloseModal(true);
                       }}
                     >
-                      <p className="text-xs">Start Lesson</p>
+                      <p className="text-xs text-brand950">Start Lesson</p>
                       <MdKeyboardArrowRight size={20} />
                     </div>
                   </div>

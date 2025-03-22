@@ -1,8 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
 import Link from "next/link";
-import colors from "@/constants/colors";
-import { MdOutlineNaturePeople } from "react-icons/md";
 import { AiOutlineHome, AiOutlineSearch } from "react-icons/ai";
 import { PiBookOpenUserThin } from "react-icons/pi";
 import { BiDonateHeart } from "react-icons/bi";
@@ -18,9 +15,6 @@ const sidebarLinks = [
   { title: "Donate", href: "/courses", icon: <BiDonateHeart size={15} /> },
   { title: "Search", href: "/about", icon: <AiOutlineSearch size={15} /> },
   { title: "Feedback", href: "/courses", icon: <VscFeedback size={15} /> },
-  // { title: "About Us", href: "/" },
-  // { title: "Projects", href: "/" },
-  // { title: "Donate", href: "/" },
 ];
 
 const Sidebar = () => {

@@ -18,10 +18,7 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
   }
 
   return (
-    <div
-      className="youtube-embed"
-      style={{ position: "relative", overflow: "hidden", paddingTop: "56.25%" }}
-    >
+    <div className="youtube-embed relative overflow-hidden pt-[56.25%] rounded-[10px]">
       <iframe
         title={title}
         width={width}

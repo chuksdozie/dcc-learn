@@ -8,6 +8,7 @@ const Stacks = () => {
     <>
       <SectionLayout header="Learning Stacks">
         <DefaultAccordion data={coursesInfo} />
+        <div className="my-5" />
       </SectionLayout>
     </>
   );
