@@ -11,7 +11,7 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => {
       <NavBar />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar />
-        <div className="w-full overflow-scroll  p-3">
+        <div className="w-full overflow-scroll  pt-3">
           <div className="content">{children}</div>
           <Footer />
         </div>
