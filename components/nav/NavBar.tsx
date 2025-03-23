@@ -6,10 +6,10 @@ import Sidebar from "./SideBar";
 import { links } from "@/constants/links";
 
 const navlinks = [
-  { title: "Start", href: "/" },
-  { title: "Resources", href: "/about" },
-  { title: "Projects", href: "/" },
-  { title: "About Us", href: "/" },
+  // { title: "Start", href: "/" },
+  // { title: "Resources", href: "/about" },
+  // { title: "Projects", href: "/" },
+  // { title: "About Us", href: "/" },
   // { title: "Projects", href: "/" },
   // { title: "Donate", href: "/" },
 ];

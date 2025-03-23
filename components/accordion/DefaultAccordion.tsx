@@ -59,7 +59,7 @@ const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
                       <p className="text-sm max-lg:text-xs font-semibold text-left">
                         {course.title}
                       </p>
-                      <p className="text-sm max-lg:text-xs text-gray-700">
+                      <p className="text-sm max-lg:text-xs text-gray-700 text-left">
                         {course.description}
                       </p>
                     </div>

@@ -13,7 +13,7 @@ const sidebarLinks = [
     icon: <PiBookOpenUserThin size={15} />,
   },
   { title: "Donate", href: "/courses", icon: <BiDonateHeart size={15} /> },
-  { title: "Search", href: "/about", icon: <AiOutlineSearch size={15} /> },
+  { title: "Search", href: "/courses", icon: <AiOutlineSearch size={15} /> },
   { title: "Feedback", href: "/courses", icon: <VscFeedback size={15} /> },
 ];
 

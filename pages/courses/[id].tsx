@@ -17,7 +17,7 @@ interface CourseData {
 const CoursePage = () => {
   const router = useRouter();
   const id = router.query.id;
-  const [courseData, setCourseData] = useState<CourseData[] | null>(null);
+  const [courseData, setCourseData] = useState<CourseData | null>(null);
   const [error, setError] = useState<string>("");
 
   useEffect(() => {
@@ -53,18 +53,21 @@ const CoursePage = () => {
           //   console.log(JSON.stringify(videos, null, 2));
           // });
           console.log({ prepeprpere: data });
-          setCourseData([
+          setCourseData(
+            // [
+
             {
               id: 0,
               level: "beginner",
               content: data,
-            },
+            }
             // {
             //   id: 1,
             //   level: "intermediate",
             //   content: [],
             // },
-          ]);
+            // ]
+          );
         } catch (error) {
           console.error("Error loading course:", error);
           setError("Course not found or failed to load.");
