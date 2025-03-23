@@ -9,6 +9,7 @@ export const courseCategory = {
   FRONTEND_WEB: "Web Development - Frontend",
   BACKEND: "Backend",
   AI: "Artificial Intelligence",
+  UI_UX: "UI/UX",
 };
 
 export const courseNames: Record<string, string> = {

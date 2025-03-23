@@ -30,7 +30,7 @@ interface CoursePath {
 }
 
 interface DefaultAccordionProps {
-  data: CoursePath[];
+  data: CoursePath;
 }
 
 const CourseAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
@@ -38,50 +38,48 @@ const CourseAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
   const [seletectedCourse, setSelectedCourse] = React.useState<Course | null>();
   return (
     <div className="w-full">
-      <Accordion allowZeroExpanded>
-        {data.map((item) => (
-          <AccordionItem key={item.id}>
-            <AccordionItemHeading>
-              <AccordionItemButton
-                className={
-                  "accordion__button text-sm max-lg:text-xs text-gray500 font-light"
-                }
-              >
-                {item.level}
-              </AccordionItemButton>
-            </AccordionItemHeading>
-            <AccordionItemPanel>
-              <div className="flex flex-col gap-4 p-4">
-                {item.content.map((course) => (
-                  <div
-                    key={course.link}
-                    className="border-b p-2 rounded-md flex justify-between items-start  max-md:flex-col"
-                  >
-                    <div className="w-[80%] max-md:w-full max-md:mb-4">
-                      <p className="text-sm max-lg:text-xs font-semibold text-left">
-                        {course.title}
-                      </p>
-                      <p className="text-sm max-lg:text-xs text-gray-700">
-                        {course.description}
-                      </p>
-                    </div>
-                    <div
-                      className="flex justify-end gap-2 items-center cursor-pointer w-[120px] bg-gray-200 rounded-lg"
-                      onClick={() => {
-                        console.log("clicked");
-                        setSelectedCourse(course);
-                        setCloseModal(true);
-                      }}
-                    >
-                      <p className="text-xs text-brand950">Start Lesson</p>
-                      <MdKeyboardArrowRight size={20} />
-                    </div>
+      <Accordion preExpanded={[0]}>
+        <AccordionItem uuid={0}>
+          <AccordionItemHeading>
+            <AccordionItemButton
+              className={
+                "accordion__button text-sm max-lg:text-xs text-gray500 font-light"
+              }
+            >
+              {data.level}
+            </AccordionItemButton>
+          </AccordionItemHeading>
+          <AccordionItemPanel>
+            <div className="flex flex-col gap-4 p-4">
+              {data.content.map((course) => (
+                <div
+                  key={course.link}
+                  className="border-b p-2 rounded-md flex justify-between items-start  max-md:flex-col"
+                >
+                  <div className="w-[80%] max-md:w-full max-md:mb-4">
+                    <p className="text-sm max-lg:text-xs font-semibold text-left">
+                      {course.title}
+                    </p>
+                    <p className="text-sm max-lg:text-xs text-gray-700">
+                      {course.description}
+                    </p>
                   </div>
-                ))}
-              </div>
-            </AccordionItemPanel>
-          </AccordionItem>
-        ))}
+                  <div
+                    className="flex justify-end gap-2 items-center cursor-pointer w-[120px] bg-gray-200 rounded-lg"
+                    onClick={() => {
+                      console.log("clicked");
+                      setSelectedCourse(course);
+                      setCloseModal(true);
+                    }}
+                  >
+                    <p className="text-xs text-brand950">Start Lesson</p>
+                    <MdKeyboardArrowRight size={20} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </AccordionItemPanel>
+        </AccordionItem>
       </Accordion>
       {closeModal && (
         <CenterModal

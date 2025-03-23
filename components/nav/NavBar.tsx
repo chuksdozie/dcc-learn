@@ -7,9 +7,9 @@ import { links } from "@/constants/links";
 
 const navlinks = [
   { title: "Start", href: "/" },
-  { title: "Resources", href: "/about" },
-  { title: "Projects", href: "/" },
-  { title: "About Us", href: "/" },
+  // { title: "Resources", href: "/about" },
+  // { title: "Projects", href: "/" },
+  // { title: "About Us", href: "/" },
   // { title: "Projects", href: "/" },
   // { title: "Donate", href: "/" },
 ];
@@ -24,7 +24,7 @@ const NavBar = () => {
       </div>
 
       <div className=" flex w-[40%] justify-center max-lg:hidden">
-        {navlinks.map((link, index) => (
+        {/* {navlinks.map((link, index) => (
           <Link
             href={link?.href}
             key={index}
@@ -32,7 +32,7 @@ const NavBar = () => {
           >
             {link?.title}
           </Link>
-        ))}
+        ))} */}
       </div>
 
       <div className=" flex w-[40%] justify-end max-sm:hidden ">

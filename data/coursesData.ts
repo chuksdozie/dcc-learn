@@ -2,6 +2,7 @@ import { courseCategory } from "@/constants/course";
 import { backend } from "./stacks/backend";
 import { frontend_web } from "./stacks/frontend";
 import { ai } from "./stacks/ai";
+import { ui_ux } from "./stacks/ui_ux";
 
 export const coursesInfo = [
   {
@@ -21,5 +22,11 @@ export const coursesInfo = [
     path: courseCategory.AI,
     image: "/assets/courses/react.png",
     courses: ai,
+  },
+  {
+    id: 3,
+    path: courseCategory.UI_UX,
+    image: "/assets/courses/react.png",
+    courses: ui_ux,
   },
 ];
