@@ -58,7 +58,7 @@ const CoursePage = () => {
 
             {
               id: 0,
-              level: "beginner",
+              level: "Module 1",
               content: data,
             }
             // {
