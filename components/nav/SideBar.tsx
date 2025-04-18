@@ -1,25 +1,69 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, use, act } from "react";
 import Link from "next/link";
 import { AiOutlineHome, AiOutlineSearch } from "react-icons/ai";
 import { PiBookOpenUserThin } from "react-icons/pi";
 import { BiDonateHeart } from "react-icons/bi";
 import { VscFeedback } from "react-icons/vsc";
-
-const sidebarLinks = [
-  { title: "Home", href: "/", icon: <AiOutlineHome size={15} /> },
-  {
-    title: "Courses",
-    href: "/courses",
-    icon: <PiBookOpenUserThin size={15} />,
-  },
-  { title: "Donate", href: "/courses", icon: <BiDonateHeart size={15} /> },
-  { title: "Search", href: "/courses", icon: <AiOutlineSearch size={15} /> },
-  { title: "Feedback", href: "/courses", icon: <VscFeedback size={15} /> },
-];
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement | null>(null);
+  const [activePath, setActivePath] = useState("/");
+  const router = useRouter();
+
+  const sidebarLinks = [
+    {
+      title: "Home",
+      href: "/",
+      icon: (
+        <AiOutlineHome
+          size={15}
+          className={`${activePath === "/" ? "text-brand900" : ""}`}
+        />
+      ),
+    },
+    {
+      title: "Courses",
+      href: "/courses",
+      icon: (
+        <PiBookOpenUserThin
+          size={15}
+          className={`${activePath === "/courses" ? "text-brand900" : ""}`}
+        />
+      ),
+    },
+    {
+      title: "Donate",
+      href: "/donate",
+      icon: (
+        <BiDonateHeart
+          size={15}
+          className={`${activePath === "/donate" ? "text-brand900" : ""}`}
+        />
+      ),
+    },
+    {
+      title: "Search",
+      href: "/search",
+      icon: (
+        <AiOutlineSearch
+          size={15}
+          className={`${activePath === "/search" ? "text-brand900" : ""}`}
+        />
+      ),
+    },
+    {
+      title: "Feedback",
+      href: "/feedback",
+      icon: (
+        <VscFeedback
+          size={15}
+          className={`${activePath === "/feedback" ? "text-brand900" : ""}`}
+        />
+      ),
+    },
+  ];
 
   // Close sidebar when clicking outside
   useEffect(() => {
@@ -41,6 +85,10 @@ const Sidebar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
+  useEffect(() => {
+    setActivePath(router.asPath);
+  }, [router]);
+
   return (
     <div className="bg-white" ref={sidebarRef}>
       {/* <div> */}
@@ -55,7 +103,8 @@ const Sidebar = () => {
         // className={`absolute top-10 left-[-20px] w-[250px] h-screen bg-red-600 shadow-lg flex flex-col items-end p-4 transform ${
         //   isOpen ? "translate-x-0" : "-translate-x-full"
         // } transition-transform duration-300 ease-in-out z-10`}
-        className={`w-[250px] max-lg:w-[50px]  bg-white shadow-lg flex flex-col items-end `}
+        // className={`w-[250px] max-lg:w-[50px]  bg-white shadow-lg flex flex-col items-end `}
+        className={`w-[250px] relative  bg-white shadow-lg flex flex-col items-end  max-md:w-[100%] max-md:fixed max-md:bottom-0 max-md:flex-row max-md:z-10 `}
       >
         {sidebarLinks.map((link, index) => (
           <Link
@@ -66,7 +115,13 @@ const Sidebar = () => {
           >
             {/* <MdOutlineNaturePeople className="p-0 m-0" size={15} /> */}
             {link.icon}
-            <p className=" max-lg:hidden p-0 m-0 text-xs">{link.title}</p>
+            <p
+              className={`max-md:hidden p-0 m-0 text-xs ${
+                activePath === link.href ? "text-brand900 font-semibold" : ""
+              }`}
+            >
+              {link.title}
+            </p>
           </Link>
         ))}
       </div>
