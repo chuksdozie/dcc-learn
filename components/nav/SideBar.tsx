@@ -19,7 +19,7 @@ const Sidebar = () => {
       icon: (
         <AiOutlineHome
           size={15}
-          className={`${activePath === "/" ? "text-brand900" : ""}`}
+          className={`${activePath === "/" ? "text-brand900 " : ""}`}
         />
       ),
     },
@@ -49,7 +49,9 @@ const Sidebar = () => {
       icon: (
         <AiOutlineSearch
           size={15}
-          className={`${activePath === "/search" ? "text-brand900" : ""}`}
+          className={`${
+            activePath === "/search" ? "text-brand900 max-md:bg-brand600" : ""
+          }`}
         />
       ),
     },
@@ -104,13 +106,15 @@ const Sidebar = () => {
         //   isOpen ? "translate-x-0" : "-translate-x-full"
         // } transition-transform duration-300 ease-in-out z-10`}
         // className={`w-[250px] max-lg:w-[50px]  bg-white shadow-lg flex flex-col items-end `}
-        className={`w-[250px] relative  bg-white shadow-lg flex flex-col items-end  max-md:w-[100%] max-md:fixed max-md:bottom-0 max-md:flex-row max-md:z-10 `}
+        className={`w-[250px] relative  bg-white shadow-lg flex flex-col items-end  max-md:w-[100%] max-md:fixed max-md:bottom-0 max-md:flex-row max-md:z-10 max-md:justify-evenly max-md:py-2`}
       >
         {sidebarLinks.map((link, index) => (
           <Link
             href={link.href}
             key={index}
-            className="flex items-center font-light text-base text-gray-700 w-full p-4 px-5 border-b border-gray-200 gap-2"
+            className={`flex items-center font-light text-base text-gray-700 w-full p-4 px-5 border-b border-gray-200 gap-2  ${
+              activePath === link.href ? "bg-brand100 rounded-full" : ""
+            }  max-md:p-1 max-md:h-6 max-md:w-6 max-md:border-0`}
             onClick={() => setIsOpen(false)}
           >
             {/* <MdOutlineNaturePeople className="p-0 m-0" size={15} /> */}
