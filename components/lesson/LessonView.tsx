@@ -17,7 +17,11 @@ const LessonView = ({
       <div className="flex justify-between items-center mb-4 text-sm max-lg:text-xs">
         <p>{data?.title}</p>
         {/* <MdAirlineSeatReclineExtra onClick={closeModal} /> */}
-        <IoIosCloseCircleOutline onClick={closeModal} size={25} />
+        <IoIosCloseCircleOutline
+          onClick={closeModal}
+          size={25}
+          className="cursor-pointer hover:bg-red-600 rounded-full text-gray-500"
+        />
       </div>
 
       <YouTubeEmbed videoId={data?.link} />

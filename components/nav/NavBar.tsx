@@ -17,7 +17,7 @@ const NavBar = () => {
   return (
     <div className="flex justify-between items-center px-4 py-2 gap-2 border-b-2 border-gray-100 z-20 sticky top-[-10px] bg-white h-[60px]">
       {/* <Sidebar links={navlinks} /> */}
-      <div className="flex w-[20%] max-sm:w-[80%] max-sm:justify-start justify-center ">
+      <div className="flex w-[20%] max-sm:w-[80%] max-sm:justify-start justify-start">
         <Link href="/">
           <Logo />
         </Link>
