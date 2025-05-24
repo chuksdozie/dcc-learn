@@ -1,7 +1,7 @@
 // next-seo.config.js
-const title = "DCC - Building Lives Through Tech";
+const title = "DCC Learn | Curated Tech Courses to Build Your Career";
 const description =
-  "Join the DC Community to connect, learn, and grow with like-minded tech enthusiasts and professionals.";
+  "Discover handpicked tech courses for all levels — from software development to UI/UX and data. Learn, grow, and thrive with DCC Learn: a community-driven platform committed to building lives through tech.";
 
 export default {
   title,
@@ -9,7 +9,7 @@ export default {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://community.devchuks.com", // Replace with your actual DC Community URL
+    url: "https://learn.devchuks.com", // Replace with your actual DC Community URL
     title,
     description,
     images: [
@@ -20,7 +20,7 @@ export default {
         alt: "DC Community Banner",
       },
     ],
-    site_name: "DC Community",
+    site_name: "Learn - DC Community",
   },
   twitter: {
     // handle: "@dc_community", // Replace with the DC Community Twitter handle
