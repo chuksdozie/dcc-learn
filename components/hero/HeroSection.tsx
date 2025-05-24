@@ -13,7 +13,7 @@ const HeroSection = ({
   subHeader?: string;
 }) => {
   return (
-    <div className="relative flex flex-col items-center justify-end bg-gray-100 py-5 h-[800px] overflow-hidden  max-lg:h-[300px] bg-hero-bg bg-cover bg-center rounded-[30px] w-[90%]">
+    <div className="relative flex flex-col items-center justify-end bg-gray-100 py-5 h-[400px] overflow-hidden  max-lg:h-[250px] bg-hero-bg bg-cover bg-center rounded-[30px] w-[90%]">
       {/* <video
         autoPlay
         loop

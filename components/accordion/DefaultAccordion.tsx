@@ -49,11 +49,20 @@ const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              <div className="flex flex-col gap-4 p-4">
+              <div className="flex flex-col gap-4 p-2">
                 {item.courses.map((course) => (
                   <div
                     key={course.id}
-                    className="border-b p-2 rounded-md flex  justify-between items-start  max-md:flex-col"
+                    className="border-b p-2 rounded-md flex  cursor-pointer justify-between items-start  max-md:flex-col hover:bg-gray-300"
+                    onClick={() =>
+                      router.push({
+                        pathname: `/courses/${course.code}`,
+                        query: {
+                          playlist: course.playlist as string,
+                          title: course.title as string,
+                        },
+                      })
+                    }
                   >
                     <div className="w-[80%] max-md:w-full max-md:mb-4">
                       <p className="text-sm max-lg:text-xs font-semibold text-left">
@@ -63,18 +72,7 @@ const DefaultAccordion: React.FC<DefaultAccordionProps> = ({ data }) => {
                         {course.description}
                       </p>
                     </div>
-                    <div
-                      className="flex justify-end gap-2 items-center cursor-pointer w-[120px] bg-gray-200 rounded-lg"
-                      onClick={() =>
-                        router.push({
-                          pathname: `/courses/${course.code}`,
-                          query: {
-                            playlist: course.playlist as string,
-                            title: course.title as string,
-                          },
-                        })
-                      }
-                    >
+                    <div className="flex justify-end gap-2 items-center  w-[120px] bg-gray-200 rounded-lg">
                       <p className="text-xs text-brand950">Open Course</p>
                       <MdKeyboardArrowRight size={20} />
                     </div>

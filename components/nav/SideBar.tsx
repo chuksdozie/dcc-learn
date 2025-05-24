@@ -113,15 +113,17 @@ const Sidebar = () => {
             href={link.href}
             key={index}
             className={`flex items-center font-light text-base text-gray-700 w-full p-4 px-5 border-b border-gray-200 gap-2  ${
-              activePath === link.href ? "bg-brand100 rounded-full" : ""
-            }  max-md:p-1 max-md:h-6 max-md:w-6 max-md:border-0`}
+              activePath === link.href ? "bg-brand200" : ""
+            }  max-md:p-1 max-md:h-6 max-md:w-6 max-md:border-0 max-md:rounded-full`}
             onClick={() => setIsOpen(false)}
           >
             {/* <MdOutlineNaturePeople className="p-0 m-0" size={15} /> */}
             {link.icon}
             <p
               className={`max-md:hidden p-0 m-0 text-xs ${
-                activePath === link.href ? "text-brand900 font-semibold" : ""
+                activePath === link.href
+                  ? "text-brand900 text-lg font-semibold"
+                  : ""
               }`}
             >
               {link.title}
