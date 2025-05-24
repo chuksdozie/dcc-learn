@@ -11,8 +11,8 @@ const Feedback = () => {
           We love to hear from you 💬
         </h1>
         <p className="text-gray-600 text-md mb-8">
-          Your feedback helps us grow and serve you better. Let us know what you
-          think!
+          Your feedback helps us keep building lives through tech — we’d love to
+          hear from you!
         </p>
 
         <Link href={links.feedback} target="_blank">
