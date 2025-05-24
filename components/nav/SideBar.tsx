@@ -18,7 +18,7 @@ const Sidebar = () => {
       href: "/",
       icon: (
         <AiOutlineHome
-          size={15}
+          size={25}
           className={`${activePath === "/" ? "text-brand900 " : ""}`}
         />
       ),
@@ -28,39 +28,39 @@ const Sidebar = () => {
       href: "/courses",
       icon: (
         <PiBookOpenUserThin
-          size={15}
+          size={25}
           className={`${activePath === "/courses" ? "text-brand900" : ""}`}
         />
       ),
     },
-    {
-      title: "Donate",
-      href: "/donate",
-      icon: (
-        <BiDonateHeart
-          size={15}
-          className={`${activePath === "/donate" ? "text-brand900" : ""}`}
-        />
-      ),
-    },
-    {
-      title: "Search",
-      href: "/search",
-      icon: (
-        <AiOutlineSearch
-          size={15}
-          className={`${
-            activePath === "/search" ? "text-brand900 max-md:bg-brand600" : ""
-          }`}
-        />
-      ),
-    },
+    // {
+    //   title: "Donate",
+    //   href: "/donate",
+    //   icon: (
+    //     <BiDonateHeart
+    //     size={25}
+    //       className={`${activePath === "/donate" ? "text-brand900" : ""}`}
+    //     />
+    //   ),
+    // },
+    // {
+    //   title: "Search",
+    //   href: "/search",
+    //   icon: (
+    //     <AiOutlineSearch
+    //     size={25}
+    //       className={`${
+    //         activePath === "/search" ? "text-brand900 max-md:bg-brand600" : ""
+    //       }`}
+    //     />
+    //   ),
+    // },
     {
       title: "Feedback",
       href: "/feedback",
       icon: (
         <VscFeedback
-          size={15}
+          size={25}
           className={`${activePath === "/feedback" ? "text-brand900" : ""}`}
         />
       ),
@@ -106,7 +106,7 @@ const Sidebar = () => {
         //   isOpen ? "translate-x-0" : "-translate-x-full"
         // } transition-transform duration-300 ease-in-out z-10`}
         // className={`w-[250px] max-lg:w-[50px]  bg-white shadow-lg flex flex-col items-end `}
-        className={`w-[250px] relative  bg-white shadow-lg flex flex-col items-end  max-md:w-[100%] max-md:fixed max-md:bottom-0 max-md:flex-row max-md:z-10 max-md:justify-evenly max-md:py-2`}
+        className={`w-[250px] relative  bg-white shadow-lg flex flex-col items-end  max-md:w-[100%] max-md:fixed max-md:bottom-0 max-md:flex-row max-md:z-10 max-md:justify-evenly max-md:py-2 max-md:h-12`}
       >
         {sidebarLinks.map((link, index) => (
           <Link
@@ -114,7 +114,7 @@ const Sidebar = () => {
             key={index}
             className={`flex items-center font-light text-base text-gray-700 w-full p-4 px-5 border-b border-gray-200 gap-2  ${
               activePath === link.href ? "bg-brand200" : ""
-            }  max-md:p-1 max-md:h-6 max-md:w-6 max-md:border-0 max-md:rounded-full`}
+            }  max-md:p-1 max-md:h-9 max-md:w-9 max-md:border-0 max-md:rounded-full`}
             onClick={() => setIsOpen(false)}
           >
             {/* <MdOutlineNaturePeople className="p-0 m-0" size={15} /> */}
