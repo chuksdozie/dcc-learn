@@ -10,6 +10,8 @@ export const courseCategory = {
   BACKEND: "Backend",
   AI: "Artificial Intelligence",
   UI_UX: "UI/UX",
+  MOBILE: "Mobile App Development",
+  BASE_LANGUAGE: "Base Language",
 };
 
 export const courseNames: Record<string, string> = {
